@@ -1,0 +1,34 @@
+{
+  "name": "code-navigation-loader",
+  "version": "1.0.0",
+  "description": "react 代码导航 webpack loader",
+  "main": "dist/index.cjs.js", 
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+		"esbuild:cjs": "esbuild ./src/index.ts --bundle --platform=node --outfile=dist/index.cjs --format=cjs",
+    "esbuild:esm": "esbuild ./src/index.ts --bundle --platform=node --outfile=dist/index.mjs --format=esm",
+    "build": "npm run esbuild:cjs && npm run esbuild:esm",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charles-ShiZ/code-navigation-loader"
+  },
+  "homepage": "https://github.com/Charles-ShiZ/code-navigation-loader",
+  "keywords": [
+		"webpack",
+    "loader",
+    "plugin",
+    "jump to code",
+    "jump to vscode",
+    "jump to source code",
+    "code-navigation"
+  ],
+  "author": "shizhanhong",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.8",
+    "esbuild": "^0.15.12"
+  }
+}
