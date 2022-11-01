@@ -1,6 +1,6 @@
 {
   "name": "code-navigation-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react 代码导航 webpack loader",
   "main": "dist/index.cjs.js", 
   "module": "dist/index.esm.js",

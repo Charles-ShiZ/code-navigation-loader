@@ -1,5 +1,5 @@
 // src/index.ts
-function demoLoader(content) {
+function codeNavigationLoader(content) {
   const options = this.getOptions();
   const filePath = this.resourcePath;
   const componentNames = options.componentNames;
@@ -30,4 +30,4 @@ function demoLoader(content) {
     return subString;
   });
 }
-module.exports = demoLoader;
+module.exports = codeNavigationLoader;

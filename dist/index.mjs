@@ -6,7 +6,7 @@ var __commonJS = (cb, mod) => function __require() {
 // src/index.ts
 var require_src = __commonJS({
   "src/index.ts"(exports, module) {
-    function demoLoader(content) {
+    function codeNavigationLoader(content) {
       const options = this.getOptions();
       const filePath = this.resourcePath;
       const componentNames = options.componentNames;
@@ -37,7 +37,7 @@ var require_src = __commonJS({
         return subString;
       });
     }
-    module.exports = demoLoader;
+    module.exports = codeNavigationLoader;
   }
 });
 export default require_src();

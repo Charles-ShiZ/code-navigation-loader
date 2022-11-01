@@ -1,4 +1,4 @@
-function demoLoader(content:string) {
+function codeNavigationLoader(content:string) {
   const options:{
     componentNames:string[]
   } = this.getOptions() // 获取 options
@@ -36,4 +36,4 @@ function demoLoader(content:string) {
   })
 }
 
-module.exports = demoLoader
+module.exports = codeNavigationLoader
