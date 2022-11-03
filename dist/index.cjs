@@ -3,10 +3,11 @@ function codeNavigationLoader(content) {
   const options = this.getOptions();
   const filePath = this.resourcePath;
   const componentNames = options.componentNames;
-  const contentSplit = content.split(/\n/);
+  const contentSplit = content.split(/\n/).map((str) => `${str}
+`);
   const matchedPositions = [];
   const compNames = componentNames.map((name, index) => `(${name})${index + 1 !== componentNames.length ? "|" : ""}`).join("");
-  const reactCompRegExp = new RegExp(`<(${compNames})+\\s*`, "g");
+  const reactCompRegExp = new RegExp(`<(${compNames})+(?=(\\s|>))`, "g");
   contentSplit.forEach((eachLine, line) => {
     const char = eachLine.search(reactCompRegExp);
     if (char > -1) {

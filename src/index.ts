@@ -5,12 +5,12 @@ function codeNavigationLoader(content:string) {
   const filePath = this.resourcePath // 获取 对应文件路径
 
   const componentNames = options.componentNames
-  const contentSplit = content.split(/\n/)
+  const contentSplit = content.split(/\n/).map((str) => `${str}\n`)
   const matchedPositions:{line:number,char:number}[] = []
   const compNames = componentNames
     .map((name, index) => `(${name})${index + 1 !== componentNames.length ? '|' : ''}`)
     .join('')
-  const reactCompRegExp = new RegExp(`<(${compNames})+\\s*`, 'g')
+  const reactCompRegExp = new RegExp(`<(${compNames})+(?=(\\s|>))`, 'g')
 
   contentSplit.forEach((eachLine, line) => {
     const char = eachLine.search(reactCompRegExp) // 匹配所有未被注释的组件开头。如，<Button
