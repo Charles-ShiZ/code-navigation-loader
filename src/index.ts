@@ -32,6 +32,7 @@ export default function codeNavigationLoader(
         onContextMenu= {(e) => {
             if(e.shiftKey){
                 e.preventDefault();
+                e.stopPropagation();
                 window.open('vscode://file/${filePath}:${line}:${char}')
             }
         }}`
