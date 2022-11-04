@@ -1,12 +1,16 @@
-function codeNavigationLoader(content:string) {
-  const options:{
-    componentNames:string[]
-  } = this.getOptions() // 获取 options
+import type { LoaderContext } from 'webpack'
+export default function codeNavigationLoader(
+  this: LoaderContext<{
+    componentNames: string[]
+  }>,
+  content: string
+): string {
+  const options = this.getOptions() // 获取 options
   const filePath = this.resourcePath // 获取 对应文件路径
 
   const componentNames = options.componentNames
   const contentSplit = content.split(/\n/).map((str) => `${str}\n`)
-  const matchedPositions:{line:number,char:number}[] = []
+  const matchedPositions: { line: number; char: number }[] = []
   const compNames = componentNames
     .map((name, index) => `(${name})${index + 1 !== componentNames.length ? '|' : ''}`)
     .join('')
@@ -35,5 +39,3 @@ function codeNavigationLoader(content:string) {
     return subString
   })
 }
-
-module.exports = codeNavigationLoader
